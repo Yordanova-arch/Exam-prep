@@ -14,19 +14,18 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 14.x
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 14.x
         cache: 'npm'
-    - run: npm install
-    - run: npm run test:unit
-    - run: echo "diana"
+    - name: NPM INSTALL
+      run: npm install
+    - name: RUN TEST 
+      run: npm run test:unit
+    - name: SoftUNI
+      run: echo "diana"
 
